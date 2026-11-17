@@ -1,2 +1,3 @@
 step,images,minutes,note
-gold_manual,4,22,gán tay thủ công trên CVAT (không AI)
+gold_manual,4,22,gán tay thủ công trên CVAT (không AI, ~5.5 phút/ảnh)
+batch_review,24,72,duyệt lô có pre-label trên CVAT theo checklist 4 bước (~3.0 phút/ảnh)
