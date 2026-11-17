@@ -6,17 +6,17 @@
 
 | Lớp | Model + cỡ | Ngưỡng | Vì sao (dẫn `run_id` trong `model_log.csv`) |
 |---|---|---|---|
-| person | YOLO26m | 0.40 | `r01`, `threshold_sweep`: đạt recall 93.1% ($\ge 90\%$), precision 96.4% trên 29 vật gold |
+| person | YOLO26m | 0.45 | `r01`, `threshold_sweep`: đạt recall 91% ($\ge 90\%$), precision 77% trên 22 vật gold |
 | bicycle | YOLO26m | 0.30 (mặc định) | `threshold_sweep`: chỉ có 4 vật trong gold ($< 5$), mẫu quá ít nên giữ mặc định theo quy chuẩn |
-| motorbike | YOLO26m | 0.50 | `r01`, `r02`, `threshold_sweep`: đạt recall 90.9% ($\ge 90\%$), precision 90.9% trên 11 vật gold |
-| car | YOLO26m | 0.50 | `r01`, `r02`, `threshold_sweep`: đạt recall 100.0% ($\ge 90\%$), precision 69.2% trên 9 vật gold |
+| motorbike | YOLO26m | 0.50 | `r01`, `r02`, `threshold_sweep`: đạt recall 91% ($\ge 90\%$), precision 91% trên 11 vật gold |
+| car | YOLO26m | 0.50 | `r01`, `r02`, `threshold_sweep`: đạt recall 100% ($\ge 90\%$), precision 69% trên 9 vật gold |
 | bus | YOLO26m | 0.30 (mặc định) | `threshold_sweep`: chỉ có 1 vật trong gold ($< 5$), giữ mặc định theo quy chuẩn |
 | truck | YOLO26m | 0.30 (mặc định) | `threshold_sweep`: chỉ có 1 vật trong gold ($< 5$), giữ mặc định theo quy chuẩn |
-| three_wheeler | YOLOE-26s, prompts: tuk-tuk, cyclo, cargo tricycle | 0.30 | `r03`, `threshold_sweep`: đạt recall 100.0% ($\ge 90\%$), precision 100.0% trên 6 vật gold |
+| three_wheeler | YOLOE-26s, prompts: tuk-tuk, cyclo, cargo tricycle | 0.30 | `r03`, `threshold_sweep`: đạt recall 100% ($\ge 90\%$), precision 83% trên 5 vật gold |
 
 - Lệnh `merge_prelabels.py` đã dùng:
   ```powershell
-  python scripts/merge_prelabels.py work/prelabel/yoloe_all/pre.coco.json work/prelabel/y26_all/pre.coco.json --thr "person=0.4,motorbike=0.5,car=0.5,three_wheeler=0.3" --conf 0.3 --iou 0.6 --split "batch,gold" --out work/prelabel/merged_review/pre.coco.json
+  python scripts/merge_prelabels.py work/prelabel/yoloe_all/pre.coco.json work/prelabel/y26_all/pre.coco.json --thr "person=0.45,motorbike=0.5,car=0.5,three_wheeler=0.3" --conf 0.3 --iou 0.6 --split "batch,gold" --out work/prelabel/merged_review/pre.coco.json
   ```
 - **Phiên bản SAM bạn chọn**: **SAM 2.1 base (`sam2.1_b.pt`)**. Lý do: Cho đường biên polygon ôm sát nan hoa bánh xe và mui vòm xe tuk-tuk chi tiết hơn đáng kể so với MobileSAM (317.255 px polygon đơn liền mạch vs 245.541 px bị vỡ thành 2 mảnh của MobileSAM trên `img_013.jpg`). Tốc độ thực thi trên GPU Quadro P1000 đạt 3.44s/ảnh, hoàn toàn nằm trong ngưỡng chấp nhận và không bị rào cản tài khoản gated như SAM 3.
 - Lỗi nào **không sửa được bằng đổi ngưỡng**: Lỗi detector closed-set YOLO26m nhận nhầm xe tuk-tuk thành `car` hoặc `truck` (ví dụ trên `img_002.jpg` gán tuk-tuk thành `car` với conf 0.48). Việc tăng hay giảm `--conf` không thể giải quyết vì kiến trúc COCO 80 lớp không có khái niệm `three_wheeler`. Cách sửa triệt để: Sử dụng detector open-vocabulary YOLOE-26s với prompt chuyên biệt và đặt tệp dự đoán của YOLOE đứng trước YOLO26 trong lệnh `merge_prelabels.py` với ngưỡng IoU chồng lấn 0.6.
@@ -35,7 +35,7 @@
 | added | 3 | 0.7% | 404 đối tượng sau duyệt |
 
 - Lớp nào máy tệ nhất: Lớp `three_wheeler` và `motorbike` ở nền xa. Trên `img_002.jpg` và `img_013.jpg`, YOLO26m hoàn toàn bất lực trước xe ba bánh; trên `img_021.jpg`, các xe máy nhỏ bị che khuất một phần ở hậu cảnh bị mô hình bỏ sót hoàn toàn do kích thước dưới ngưỡng nhận diện.
-- So với gold: Precision của máy đạt **92.1%** (58/63, KTC 95%: 83–97%), Recall của máy đạt **95.1%** (58/61, KTC 95%: 87–98%), với mẫu số là 61 đối tượng trong 4 ảnh gold.
+- So với gold: Precision của máy đạt **81.0%** (51/63, KTC 95%: 70–89%), Recall của máy đạt **96.2%** (51/53, KTC 95%: 87–99%), với mẫu số là 53 đối tượng trong 4 ảnh gold (không tính `ignore_region`).
 
 ## 3. Thiên kiến tự động hóa và ảnh bẫy
 

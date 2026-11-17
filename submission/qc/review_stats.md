@@ -25,10 +25,10 @@ Trong số deleted + added, **0 trường hợp là đổi lớp** (máy gán sa
 | three_wheeler | 25 | 0 | 0 | 0 |
 
 ## 2. So với gold (nhãn gán tay từ đầu)
-Ảnh gold: 4; đối tượng gold: 61 (mẫu số của recall)
+Ảnh gold: 4; đối tượng gold: 53 (mẫu số của recall)
 | | TP | FP | FN | Precision | Recall |
 |---|---|---|---|---|---|
-| Máy (pre-label) | 58 | 5 | 3 | 92.1% (KTC 95%: 83–97%) | 95.1% (KTC 95%: 87–98%) |
+| Máy (pre-label) | 51 | 12 | 2 | 81.0% (KTC 95%: 70–89%) | 96.2% (KTC 95%: 87–99%) |
 
 *Lạc quan: ngưỡng được chọn trên chính các ảnh gold này (in-sample), và chỉ có 4 ảnh. Đọc khoảng tin cậy, đừng đọc con số đơn.*
 
