@@ -1,13 +1,13 @@
 # Thông tin học viên
 
-- Họ và tên: <<>>
-- MSHV: <<>>
-- Lớp (L2 / L3 / khác): <<>>
-- Tài khoản GitHub: <<>>
-- Repo bài nộp (URL): <<>>
-- Commit chốt bài (hash): <<>>
-- Máy: <<hệ điều hành, GPU (CUDA / MPS / không có)>>
-- CVAT (Docker): <<phiên bản, ví dụ v2.81.0>>
+- Họ và tên: Nguyễn Bá Duy
+- MSHV: 2A202603192
+- Lớp (L2 / L3 / khác): K5-L23
+- Tài khoản GitHub: basduy05
+- Repo bài nộp (URL): https://github.com/basduy05/K5-L23-Day08-NguyenBaDuy-2A202603192-AI-Assisted-Labeling
+- Commit chốt bài (hash): <<sẽ cập nhật sau commit cuối>>
+- Máy: Windows 11 x64, GPU NVIDIA Quadro P1000 (CUDA 12.4)
+- CVAT (Docker): v2.74.1
 
 ## Kết quả tóm tắt (điền cuối bài; số lấy từ `submission/qc/*`, kèm mẫu số)
 
