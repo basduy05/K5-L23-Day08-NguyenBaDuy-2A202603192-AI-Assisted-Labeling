@@ -5,7 +5,7 @@
 - Lớp (L2 / L3 / khác): K5-L23
 - Tài khoản GitHub: basduy05
 - Repo bài nộp (URL): https://github.com/basduy05/K5-L23-Day08-NguyenBaDuy-2A202603192-AI-Assisted-Labeling
-- Commit chốt bài (hash): 37d5a69
+- Commit chốt bài (hash): 7424dd8
 - Máy: Windows 11 x64, GPU NVIDIA Quadro P1000 (CUDA 12.4)
 - CVAT (Docker): v2.74.1
 
