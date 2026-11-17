@@ -1,1 +1,5 @@
 case_id,image,nguon,van_de,quyet_dinh,quy_tac_ghi_vao_guideline,phien_ban_guideline
+CAL-01,img_013,loi_may,"YOLO26 goi xe tuk-tuk la car hoac truck","Luon gan three_wheeler cho moi xe tuk-tuk, ba gac, xich lo co 3 banh","Muc 2 & 5: Xe ba banh co mui/thung van la three_wheeler, khong gan car hay truck",v1.1
+CAL-02,img_004,cau_hoi_mo,"Xe dap dien va xe may dien nho phan loai bicycle hay motorbike (Cau hoi mo 1)","Co ban dap gan bicycle; khong ban dap dang xe ga gan motorbike","Muc 2 & 6: Xe dap dien co ban dap gan bicycle; khong ban dap gan motorbike",v1.1
+CAL-03,img_018,can_review,"Cum xe may va xe dap nho o xa cao < 20px dính chum","Ve mot vung ignore_region bao quanh toan cum, khong ve box roi rac","Muc 4.1.6 & 5: Cum xe/nguoi o xa cao < 20px bat buoc gom bang ignore_region",v1.1
+CAL-04,img_021,bay_lot,"Bay missing bi lot: xe may phia xa bi khuat nua than bi may bo sot","Quet mat toan anh truoc khi xem goi y AI de phat hien vat sot phia xa","Muc 4.1.2: Vat nhin thay >= 20% van phai gan nhan, khong bo sot",v1.1

@@ -1,0 +1,9 @@
+image,object_id,error_type,reviewer,note
+img_003.jpg,,khong,NguyenBaDuy,Khung hinh sach se du tieu chuan
+img_004.jpg,,khong,NguyenBaDuy,Tuk-tuk va xe may tach biet chuan xac
+img_008.jpg,,khong,NguyenBaDuy,Nhan xe va nguoi dung quy dinh
+img_013.jpg,116,thua,NguyenBaDuy,Box trung lap o vien tuk-tuk do open-vocab sinh them
+img_017.jpg,,khong,NguyenBaDuy,Three_wheeler va person tach biet dung quy tac
+img_018.jpg,200,sai_vi_tri_kich_thuoc,NguyenBaDuy,Xe dap o xa cao 16.6px chua khit va nen gom ignore_region
+img_021.jpg,,bo_sot,NguyenBaDuy,Bo sot xe may nho bi che khuat phia xa
+img_035.jpg,,khong,NguyenBaDuy,Xe may va o to nhan dien dung
